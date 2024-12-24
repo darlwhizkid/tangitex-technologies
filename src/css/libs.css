@@ -1,0 +1,107 @@
+
+:root {
+  --primary: #06A3DA;
+  --secondary: #34425D;
+  --light: #F0F6FF;
+  --dark: #1B2C51;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--light);
+}
+
+/* Navbar Styling */
+.navbar {
+  transition: .5s;
+}
+
+.navbar.sticky-top {
+  background: var(--dark) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, .1);
+}
+
+.navbar .navbar-brand {
+  height: 75px;
+}
+
+.navbar .navbar-nav .nav-link {
+  padding: 25px 15px;
+  color: #FFFFFF;
+  font-weight: 500;
+  outline: none;
+}
+
+.navbar .navbar-nav .nav-link:hover,
+.navbar .navbar-nav .nav-link.active {
+  color: var(--primary);
+}
+
+/* Spinner */
+#spinner {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .5s ease-out, visibility 0s linear .5s;
+  z-index: 99999;
+}
+
+#spinner.show {
+  transition: opacity .5s ease-out, visibility 0s linear 0s;
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Hero Section */
+.hero-header {
+  background: linear-gradient(rgba(27, 44, 81, .9), rgba(27, 44, 81, .9));
+}
+/* Animation Classes */
+.wow {
+  visibility: hidden;
+}
+
+.animated {
+  animation-duration: 1s;
+}
+
+/* Button Styling */
+.btn {
+  font-weight: 500;
+  transition: .5s;
+}
+
+.btn.btn-primary {
+  color: #FFFFFF;
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn.btn-primary:hover {
+  background-color: var(--dark);
+  border-color: var(--dark);
+}
+
+/* Section Styling */
+.section-title {
+  position: relative;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+}
+
+.section-title::before {
+  position: absolute;
+  content: "";
+  width: 150px;
+  height: 5px;
+  left: 0;
+  bottom: 0;
+  background: var(--primary);
+  border-radius: 2px;
+}
+
+/* Responsive Design */
+@media (max-width: 991.98px) {
+  .navbar .navbar-nav .nav-link {
+    padding: 10px 0;
+  }
+}
