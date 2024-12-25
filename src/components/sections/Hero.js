@@ -1,15 +1,26 @@
 import React, { useEffect } from "react";
 import { Carousel } from "bootstrap";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   useEffect(() => {
-    // Initialize Bootstrap carousel with auto-sliding
-    const carousel = document.querySelector("#header-carousel");
-    new Carousel(carousel, {
-      interval: 5000,
+    const carousel = new Carousel("#header-carousel", {
+      interval: 6000,
       ride: "carousel",
+      touch: true,
+      pause: "hover"
     });
+
+    return () => {
+      carousel.dispose();
+    };
   }, []);
+
+  const scrollToQuote = (e) => {
+    e.preventDefault();
+    const quoteSection = document.getElementById('quote');
+    quoteSection.scrollIntoView({ behavior: 'smooth' });
+  };
   
   return (
     <div className="container-fluid position-relative p-0">
@@ -30,7 +41,8 @@ const Hero = () => {
                   Inspiring & Innovative Digital Solution
                 </h1>
                 <a
-                  href="quote.html"
+                  onClick={scrollToQuote}
+                  href="#quote"
                   className="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft"
                 >
                   Free Quote
@@ -55,7 +67,8 @@ const Hero = () => {
                   Inspiring & Innovative Digital Solution
                 </h1>
                 <a
-                  href="quote.html"
+                  onClick={scrollToQuote}
+                  href="#quote"
                   className="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft"
                 >
                   Free Quote
@@ -76,10 +89,7 @@ const Hero = () => {
           data-bs-target="#header-carousel"
           data-bs-slide="prev"
         >
-          <span
-            className="carousel-control-prev-icon"
-            aria-hidden="true"
-          ></span>
+          <span className="carousel-control-prev-icon" aria-hidden="true"></span>
           <span className="visually-hidden">Previous</span>
         </button>
         <button
@@ -88,15 +98,11 @@ const Hero = () => {
           data-bs-target="#header-carousel"
           data-bs-slide="next"
         >
-          <span
-            className="carousel-control-next-icon"
-            aria-hidden="true"
-          ></span>
+          <span className="carousel-control-next-icon" aria-hidden="true"></span>
           <span className="visually-hidden">Next</span>
         </button>
       </div>
     </div>
   );
 };
-
 export default Hero;

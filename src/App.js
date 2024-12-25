@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import $ from "jquery";
 import WOW from "wow.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
@@ -24,22 +23,24 @@ import ServicesPage from "./components/pages/ServicesPage";
 import ContactPage from "./components/pages/ContactPage";
 
 function App() {
+  const wowRef = useRef(null);
+
   useEffect(() => {
-    const wow = new WOW();
+    const wow = new WOW({
+      boxClass: 'wow',
+      animateClass: 'animated',
+      offset: 50,
+      mobile: true,
+      live: true,
+      callback: function(box) {
+        // Optional callback after each animation
+      },
+      scrollContainer: null
+    });
     wow.init();
 
-    const handleScroll = () => {
-      if ($(window).scrollTop() > 45) {
-        $(".navbar").addClass("sticky-top shadow-sm");
-      } else {
-        $(".navbar").removeClass("sticky-top shadow-sm");
-      }
-    };
-
-    $(window).on("scroll", handleScroll);
-
     return () => {
-      $(window).off("scroll", handleScroll);
+      // Cleanup if needed
     };
   }, []);
 
@@ -72,5 +73,4 @@ function App() {
       </Routes>
     </BrowserRouter>
   );
-}
-export default App;
+}export default App;

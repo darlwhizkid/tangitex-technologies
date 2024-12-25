@@ -24,16 +24,14 @@ const ScrollToTop = () => {
   };
 
   return (
-    <>
-      {isVisible && (
-        <a
-          onClick={scrollToTop}
-          className="btn btn-lg btn-primary btn-lg-square rounded back-to-top"
-        >
-          <i className="bi bi-arrow-up"></i>
-        </a>
-      )}
-    </>
+    <button
+      onClick={scrollToTop}
+      className={`btn btn-lg btn-primary btn-lg-square rounded back-to-top ${
+        isVisible ? "d-inline" : "d-none"
+      }`}
+    >
+      <i className="bi bi-arrow-up"></i>
+    </button>
   );
 };
 

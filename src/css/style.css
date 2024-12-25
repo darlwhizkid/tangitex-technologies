@@ -553,3 +553,80 @@ h6,
     margin-bottom: -75px;
   }
 }
+
+/* Animation Keyframes */
+@keyframes slideInDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Animation Classes */
+.animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+.slideInDown {
+    animation-name: slideInDown;
+}
+
+.slideInLeft {
+    animation-name: slideInLeft;
+}
+
+.slideInRight {
+    animation-name: slideInRight;
+}
+
+.zoomIn {
+    animation-name: zoomIn;
+}
+
+/* WOW Animation Delays */
+.wow {
+    visibility: hidden;
+}
+
+[data-wow-delay="0.1s"] { animation-delay: 0.1s; }
+[data-wow-delay="0.3s"] { animation-delay: 0.3s; }
+[data-wow-delay="0.5s"] { animation-delay: 0.5s; }
+[data-wow-delay="0.7s"] { animation-delay: 0.7s; }

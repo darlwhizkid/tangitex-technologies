@@ -2,7 +2,7 @@ import React from "react";
 
 const Quote = () => {
   return (
-    <div className="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div id="quote" className="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
       <div className="container py-5">
         <div className="row g-5">
           <div className="col-lg-7">

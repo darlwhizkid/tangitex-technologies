@@ -22,7 +22,7 @@ const Services = () => {
                 Amet justo dolor lorem kasd amet magna sea stet eos vero lorem
                 ipsum dolore sed
               </p>
-              <a className="btn btn-lg btn-primary rounded" href="">
+              <a className="btn btn-lg btn-primary rounded position-absolute bottom-0 end-0 m-4" href="">
                 <i className="bi bi-arrow-right"></i>
               </a>
             </div>
