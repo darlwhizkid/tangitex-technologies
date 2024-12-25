@@ -1,9 +1,31 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const location = useLocation();
   const currentPath = location.pathname;
+
+  useEffect(() => {
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const navbarCollapse = document.querySelector('#navbarCollapse');
+
+    const handleToggle = () => {
+      navbarCollapse.classList.toggle('show');
+    };
+
+    navbarToggler.addEventListener('click', handleToggle);
+
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navbarCollapse.classList.remove('show');
+      });
+    });
+
+    return () => {
+      navbarToggler.removeEventListener('click', handleToggle);
+    };
+  }, []);
 
   return (
     <div className="container-fluid position-relative p-0">
