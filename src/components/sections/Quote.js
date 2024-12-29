@@ -5,7 +5,12 @@ const Quote = () => {
     name: "",
     email: "",
     service: "",
-    message: ""
+    message: "",
+    productInterest: "",
+    subject: ""
+
+
+    
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
@@ -17,28 +22,49 @@ const Quote = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    
     setIsSubmitting(true);
     
-    // Simulate API call
-    setTimeout(() => {
+    try{
+      const response = await fetch('https://tangitex.onrender.com/api/v1/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      })
+      console.log('submitted')
+      if (!response.ok) {
+        // Toastify Error
+        console.log('some error')
+       
+        setIsSubmitting(false);
+      }
+
       console.log('Form submitted:', formData);
       setSubmitStatus('success');
       setFormData({
         name: "",
         email: "",
         service: "",
-        message: ""
+        message: "",
+        productInterest: "",
+        subject: ""
       });
       setIsSubmitting(false);
+    }
+    catch (error) {
+      // Toastify error
+      console.log('some error occured')
+      setIsSubmitting(false);
       
-      // Clear success message after 3 seconds
-      setTimeout(() => {
-        setSubmitStatus(null);
-      }, 3000);
-    }, 1000);
-  };
+    }
+  
+      
+    }
+
 
   return (
     <div id="quote" className="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
@@ -126,10 +152,10 @@ const Quote = () => {
                   </div>
                   <div className="col-12">
                     <select
-                      name="service"
+                      name="productInterest"
                       className="form-select bg-light border-0"
                       style={{ height: "55px" }}
-                      value={formData.service}
+                      value={formData.productInterest}
                       onChange={handleChange}
                       required
                     >
