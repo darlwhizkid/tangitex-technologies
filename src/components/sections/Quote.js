@@ -1,6 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Quote = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    service: "",
+    message: ""
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    // Simulate API call
+    setTimeout(() => {
+      console.log('Form submitted:', formData);
+      setSubmitStatus('success');
+      setFormData({
+        name: "",
+        email: "",
+        service: "",
+        message: ""
+      });
+      setIsSubmitting(false);
+      
+      // Clear success message after 3 seconds
+      setTimeout(() => {
+        setSubmitStatus(null);
+      }, 3000);
+    }, 1000);
+  };
+
   return (
     <div id="quote" className="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
       <div className="container py-5">
@@ -51,51 +90,75 @@ const Quote = () => {
             </div>
           </div>
           <div className="col-lg-5">
-            <div
-              className="bg-dark rounded h-100 d-flex align-items-center p-5 wow zoomIn"
-              data-wow-delay="0.9s"
-            >
-              <form>
+            <div className="bg-dark rounded h-100 d-flex align-items-center p-5 wow zoomIn" data-wow-delay="0.9s">
+              <form onSubmit={handleSubmit}>
                 <div className="row g-3">
+                  {submitStatus === 'success' && (
+                    <div className="col-12">
+                      <div className="alert alert-success">
+                        Quote request submitted successfully!
+                      </div>
+                    </div>
+                  )}
                   <div className="col-xl-12">
                     <input
                       type="text"
+                      name="name"
                       className="form-control bg-light border-0"
                       placeholder="Your Name"
                       style={{ height: "55px" }}
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
                     />
                   </div>
                   <div className="col-12">
                     <input
                       type="email"
+                      name="email"
                       className="form-control bg-light border-0"
                       placeholder="Your Email"
                       style={{ height: "55px" }}
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
                     />
                   </div>
                   <div className="col-12">
                     <select
+                      name="service"
                       className="form-select bg-light border-0"
                       style={{ height: "55px" }}
+                      value={formData.service}
+                      onChange={handleChange}
+                      required
                     >
-                      <option selected>Select A Service</option>
-                      <option value="1">Graphic Design</option>
-                      <option value="2">Technical Support</option>
-                      <option value="3">Web Development</option>
-                      <option value="4">Apps Development</option>
-                      <option value="5">SEO Optimization</option>
+                      <option value="">Select A Service</option>
+                      <option value="Graphic Design">Graphic Design</option>
+                      <option value="Technical Support">Technical Support</option>
+                      <option value="Web Development">Web Development</option>
+                      <option value="Apps Development">Apps Development</option>
+                      <option value="SEO Optimization">SEO Optimization</option>
                     </select>
                   </div>
                   <div className="col-12">
                     <textarea
+                      name="message"
                       className="form-control bg-light border-0"
                       rows="3"
                       placeholder="Message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      required
                     ></textarea>
                   </div>
                   <div className="col-12">
-                    <button className="btn btn-dark w-100 py-3" type="submit">
-                      Request A Quote
+                    <button 
+                      className="btn btn-dark w-100 py-3" 
+                      type="submit"
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting ? 'Submitting...' : 'Request A Quote'}
                     </button>
                   </div>
                 </div>
