@@ -1,7 +1,35 @@
-import React from "react";
+import React, { useState} from "react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
+  const [email, setEmail] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch(
+        "https://tangitex.onrender.com/api/v1/newsletter",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email }),
+        }
+      );
+      if (response.ok) {
+        setEmail("");
+        alert("Thank you for subscribing!");
+      } else {
+        throw new Error("Subscription failed");
+      }
+    } catch (error) {
+      console.log('Error details:', error);
+      alert("Something went wrong. Please try again later.");
+    }
+  };
+
   return (
     <>
       <div
@@ -24,14 +52,17 @@ const Footer = () => {
                   clita stet eos sit. Elitr dolor duo lorem, elitr clita ipsum
                   sea. Diam amet erat lorem stet eos. Diam amet et kasd eos duo.
                 </p>
-                <form action="">
+                <form onSubmit={handleSubmit}>
                   <div className="input-group">
                     <input
-                      type="text"
+                      type="email"
                       className="form-control border-white p-3"
                       placeholder="Your Email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
                     />
-                    <button className="btn btn-dark">Sign Up</button>
+                    <button type="submit" className="btn btn-dark">Sign Up</button>
                   </div>
                 </form>
               </div>
@@ -55,9 +86,15 @@ const Footer = () => {
                     <p className="mb-0">+012 345 67890</p>
                   </div>
                   <div className="d-flex mt-4">
-                    <a className="btn btn-primary btn-square me-2" href="#"><i className="fab fa-twitter fw-normal"></i></a>
-                    <a className="btn btn-primary btn-square me-2" href="#"><i className="fab fa-facebook-f fw-normal"></i></a>
-                    <a className="btn btn-primary btn-square me-2" href="#"><i className="fab fa-linkedin-in fw-normal"></i></a>
+                    <a className="btn btn-primary btn-square me-2" href="#">
+                      <i className="fab fa-twitter fw-normal"></i>
+                    </a>
+                    <a className="btn btn-primary btn-square me-2" href="#">
+                      <i className="fab fa-facebook-f fw-normal"></i>
+                    </a>
+                    <a className="btn btn-primary btn-square me-2" href="#">
+                      <i className="fab fa-linkedin-in fw-normal"></i>
+                    </a>
                   </div>
                 </div>
                 <div className="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
@@ -65,10 +102,22 @@ const Footer = () => {
                     <h3 className="text-light mb-0">Quick Links</h3>
                   </div>
                   <div className="link-animated d-flex flex-column justify-content-start">
-                    <Link className="text-light mb-2" to="/"><i className="bi bi-arrow-right text-primary me-2"></i>Home</Link>
-                    <Link className="text-light mb-2" to="/about"><i className="bi bi-arrow-right text-primary me-2"></i>About Us</Link>
-                    <Link className="text-light mb-2" to="/service"><i className="bi bi-arrow-right text-primary me-2"></i>Our Services</Link>
-                    <Link className="text-light" to="/contact"><i className="bi bi-arrow-right text-primary me-2"></i>Contact Us</Link>
+                    <Link className="text-light mb-2" to="/">
+                      <i className="bi bi-arrow-right text-primary me-2"></i>
+                      Home
+                    </Link>
+                    <Link className="text-light mb-2" to="/about">
+                      <i className="bi bi-arrow-right text-primary me-2"></i>
+                      About Us
+                    </Link>
+                    <Link className="text-light mb-2" to="/service">
+                      <i className="bi bi-arrow-right text-primary me-2"></i>Our
+                      Services
+                    </Link>
+                    <Link className="text-light" to="/contact">
+                      <i className="bi bi-arrow-right text-primary me-2"></i>
+                      Contact Us
+                    </Link>
                   </div>
                 </div>
               </div>
