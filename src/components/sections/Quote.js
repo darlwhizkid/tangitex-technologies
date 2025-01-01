@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const Quote = () => {
   const [formData, setFormData] = useState({
@@ -7,67 +7,73 @@ const Quote = () => {
     service: "",
     message: "",
     productInterest: "",
-    subject: ""
-
-
-    
+    subject: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
 
+  useEffect(() => {
+    if (submitStatus === "success") {
+      const timer = setTimeout(() => {
+        setSubmitStatus(null);
+      }, 3000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [submitStatus]);
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     setIsSubmitting(true);
-    
-    try{
-      const response = await fetch('https://tangitex.onrender.com/api/v1/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
-      })
-      console.log('submitted')
+
+    try {
+      const response = await fetch(
+        "https://tangitex.onrender.com/api/v1/contact",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+      console.log("submitted");
       if (!response.ok) {
-        // Toastify Error
-        console.log('some error')
-       
+        console.log("some error");
         setIsSubmitting(false);
       }
 
-      console.log('Form submitted:', formData);
-      setSubmitStatus('success');
+      console.log("Form submitted:", formData);
+      setSubmitStatus("success");
       setFormData({
         name: "",
         email: "",
         service: "",
         message: "",
         productInterest: "",
-        subject: ""
+        subject: "",
       });
       setIsSubmitting(false);
-    }
-    catch (error) {
-      // Toastify error
-      console.log('some error occured')
+    } catch (error) {
+      console.log("some error occured");
       setIsSubmitting(false);
-      
     }
-  
-      
-    }
-
+  };
 
   return (
-    <div id="quote" className="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div
+      id="quote"
+      className="container-fluid py-5 wow fadeInUp"
+      data-wow-delay="0.1s"
+    >
       <div className="container py-5">
         <div className="row g-5">
           <div className="col-lg-7">
@@ -116,13 +122,17 @@ const Quote = () => {
             </div>
           </div>
           <div className="col-lg-5">
-            <div className="bg-dark rounded h-100 d-flex align-items-center p-5 wow zoomIn" data-wow-delay="0.9s">
+            <div
+              className="bg-dark rounded h-100 d-flex align-items-center p-5 wow zoomIn"
+              data-wow-delay="0.9s"
+            >
               <form onSubmit={handleSubmit}>
                 <div className="row g-3">
-                  {submitStatus === 'success' && (
+                  {submitStatus === "success" && (
                     <div className="col-12">
                       <div className="alert alert-success">
-                        Quote request submitted successfully!
+                        Quote request submitted successfully! We will get in
+                        touch with you shortly.
                       </div>
                     </div>
                   )}
@@ -161,7 +171,9 @@ const Quote = () => {
                     >
                       <option value="">Select A Service</option>
                       <option value="Graphic Design">Graphic Design</option>
-                      <option value="Technical Support">Technical Support</option>
+                      <option value="Technical Support">
+                        Technical Support
+                      </option>
                       <option value="Web Development">Web Development</option>
                       <option value="Apps Development">Apps Development</option>
                       <option value="SEO Optimization">SEO Optimization</option>
@@ -179,12 +191,12 @@ const Quote = () => {
                     ></textarea>
                   </div>
                   <div className="col-12">
-                    <button 
-                      className="btn btn-dark w-100 py-3" 
+                    <button
+                      className="btn btn-dark w-100 py-3"
                       type="submit"
                       disabled={isSubmitting}
                     >
-                      {isSubmitting ? 'Submitting...' : 'Request A Quote'}
+                      {isSubmitting ? "Submitting..." : "Request A Quote"}
                     </button>
                   </div>
                 </div>

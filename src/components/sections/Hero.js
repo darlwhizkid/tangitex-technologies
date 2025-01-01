@@ -61,10 +61,10 @@ const Hero = () => {
             <div className="carousel-caption d-flex flex-column align-items-center justify-content-center">
               <div className="p-3" style={{ maxWidth: "900px" }}>
                 <h5 className="text-white text-uppercase mb-3 animated slideInDown">
-                  Inspiring & Innovative
+                  YOU ARE AT THE RIGHT DESTINATION
                 </h5>
                 <h1 className="display-1 text-white mb-md-4 animated zoomIn">
-                  Welcome to our company
+                  Inspiring & Innovative Digital Solution
                 </h1>
                 <a
                   onClick={scrollToQuote}

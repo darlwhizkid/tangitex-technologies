@@ -1,8 +1,58 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../layout/Footer";
 
 const ContactPage = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [status, setStatus] = useState("");
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("sending");
+
+    try {
+      const response = await fetch(
+        "https://tangitex-backend.onrender.com/send-email",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            to: formData.email,
+            subject: formData.subject,
+            text: `Name: ${formData.name}\nEmail: ${formData.email}\nMessage: ${formData.message}`,
+          }),
+        }
+      );
+
+      if (response.ok) {
+        setStatus("success");
+        setFormData({ name: "", email: "", subject: "", message: "" });
+        setTimeout(() => setStatus(""), 3000);
+      } else {
+        setStatus("error");
+        setTimeout(() => setStatus(""), 3000);
+      }
+    } catch (error) {
+      setStatus("error");
+      setTimeout(() => setStatus(""), 3000);
+    }
+  };
+
+
   return (
     <>
       <div className="container-fluid position-relative p-0">
@@ -95,43 +145,73 @@ const ContactPage = () => {
 
           <div className="row g-5">
             <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.2s">
-              <form>
+              <form onSubmit={handleSubmit}>
                 <div className="row g-3">
                   <div className="col-md-6">
                     <input
                       type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
                       className="form-control border-0 bg-light px-4"
                       placeholder="Your Name"
                       style={{ height: "55px" }}
+                      required
                     />
                   </div>
                   <div className="col-md-6">
                     <input
                       type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
                       className="form-control border-0 bg-light px-4"
                       placeholder="Your Email"
                       style={{ height: "55px" }}
+                      required
                     />
                   </div>
                   <div className="col-12">
                     <input
                       type="text"
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleChange}
                       className="form-control border-0 bg-light px-4"
                       placeholder="Subject"
                       style={{ height: "55px" }}
+                      required
                     />
                   </div>
                   <div className="col-12">
                     <textarea
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
                       className="form-control border-0 bg-light px-4 py-3"
                       rows="4"
                       placeholder="Message"
+                      required
                     ></textarea>
                   </div>
                   <div className="col-12">
-                    <button className="btn btn-dark w-100 py-3" type="submit">
-                      Send Message
+                    <button
+                      className="btn btn-dark w-100 py-3"
+                      type="submit"
+                      disabled={status === "sending"}
+                    >
+                      {status === "sending" ? "Sending..." : "Send Message"}
                     </button>
+                    {status === "success" && (
+                      <div className="text-success mt-3">
+                        Message sent successfully!
+                      </div>
+                    )}
+                    {status === "error" && (
+                      <div className="text-danger mt-3">
+                        Failed to send message. Please try again.
+                      </div>
+                    )}
                   </div>
                 </div>
               </form>
