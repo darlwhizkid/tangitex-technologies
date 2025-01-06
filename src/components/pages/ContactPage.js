@@ -12,14 +12,14 @@ const ContactPage = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
 
-  // useEffect(() => {
-  //   if (submitStatus === "success") {
-  //     const timer = setTimeout(() => {
-  //       setSubmitStatus(null);
-  //     }, 3000);
-  //     return () => clearTimeout(timer);
-  //   }
-  // }, [submitStatus]);
+  useEffect(() => {
+    if (submitStatus === "success") {
+      const timer = setTimeout(() => {
+        setSubmitStatus(null);
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [submitStatus]);
 
   const handleChange = (e) => {
     setFormData({

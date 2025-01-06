@@ -48,9 +48,11 @@ const Footer = () => {
                   />
                 </Link>
                 <p className="mt-3 mb-4">
-                  Lorem diam sit erat dolor elitr et, diam lorem justo amet
-                  clita stet eos sit. Elitr dolor duo lorem, elitr clita ipsum
-                  sea. Diam amet erat lorem stet eos. Diam amet et kasd eos duo.
+                  "Join our growing community of digital innovators and stay
+                  ahead of the curve. Get exclusive insights, tech updates, and
+                  industry best practices delivered straight to your inbox.
+                  Subscribe now to power your digital journey with Tangitex's
+                  expert knowledge and latest solutions."
                 </p>
                 <form onSubmit={handleSubmit}>
                   <div className="input-group">
@@ -62,7 +64,9 @@ const Footer = () => {
                       onChange={(e) => setEmail(e.target.value)}
                       required
                     />
-                    <button type="submit" className="btn btn-dark">Sign Up</button>
+                    <button type="submit" className="btn btn-dark">
+                      Sign Up
+                    </button>
                   </div>
                 </form>
               </div>

@@ -33,14 +33,13 @@ const Topbar = () => {
               {currentDate}
             </small>
             <small className="me-3 text-light">
-              <i className="fa fa-map-marker-alt me-2"></i>123 Street, New York,
-              USA
+              <i className="fa fa-map-marker-alt me-2"></i>46 Brussels Avenue, l6yoy7 Brampton, ON, Canada
             </small>
             <small className="me-3 text-light">
-              <i className="fa fa-phone-alt me-2"></i>+012 345 6789
+              <i className="fa fa-phone-alt me-2"></i>+44 7432 518304
             </small>
             <small className="text-light">
-              <i className="fa fa-envelope-open me-2"></i>info@example.com
+              <i className="fa fa-envelope-open me-2"></i>tangitexng@gmail.com
             </small>
           </div>
         </div>
