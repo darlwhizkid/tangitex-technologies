@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../layout/Footer";
 
@@ -9,7 +9,17 @@ const ContactPage = () => {
     subject: "",
     message: "",
   });
-  const [status, setStatus] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
+
+  // useEffect(() => {
+  //   if (submitStatus === "success") {
+  //     const timer = setTimeout(() => {
+  //       setSubmitStatus(null);
+  //     }, 3000);
+  //     return () => clearTimeout(timer);
+  //   }
+  // }, [submitStatus]);
 
   const handleChange = (e) => {
     setFormData({
@@ -20,38 +30,33 @@ const ContactPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setStatus("sending");
+    setIsSubmitting(true);
 
     try {
       const response = await fetch(
-        "https://tangitex-backend.onrender.com/send-email",
+        "https://tangitex.onrender.com/api/v1/contact",
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({
-            to: formData.email,
-            subject: formData.subject,
-            text: `Name: ${formData.name}\nEmail: ${formData.email}\nMessage: ${formData.message}`,
-          }),
+          body: JSON.stringify(formData),
         }
       );
 
       if (response.ok) {
-        setStatus("success");
+        setSubmitStatus("success");
         setFormData({ name: "", email: "", subject: "", message: "" });
-        setTimeout(() => setStatus(""), 3000);
       } else {
-        setStatus("error");
-        setTimeout(() => setStatus(""), 3000);
+        setSubmitStatus("error");
       }
     } catch (error) {
-      setStatus("error");
-      setTimeout(() => setStatus(""), 3000);
+      console.error("Error sending message:", error);
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
     }
   };
-
 
   return (
     <>
@@ -89,64 +94,24 @@ const ContactPage = () => {
             </h1>
           </div>
 
-          <div className="row g-5 mb-5">
-            <div className="col-lg-4">
-              <div
-                className="d-flex align-items-center wow fadeIn"
-                data-wow-delay="0.1s"
-              >
-                <div
-                  className="bg-dark d-flex align-items-center justify-content-center rounded"
-                  style={{ width: "60px", height: "60px" }}
-                >
-                  <i className="fa fa-map-marker-alt text-white"></i>
-                </div>
-                <div className="ps-4">
-                  <h5 className="mb-2">Visit our office</h5>
-                  <p className="mb-2">123 Street, New York, USA</p>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4">
-              <div
-                className="d-flex align-items-center wow fadeIn"
-                data-wow-delay="0.4s"
-              >
-                <div
-                  className="bg-dark d-flex align-items-center justify-content-center rounded"
-                  style={{ width: "60px", height: "60px" }}
-                >
-                  <i className="fa fa-envelope-open text-white"></i>
-                </div>
-                <div className="ps-4">
-                  <h5 className="mb-2">Email us</h5>
-                  <p className="mb-2">info@example.com</p>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4">
-              <div
-                className="d-flex align-items-center wow fadeIn"
-                data-wow-delay="0.8s"
-              >
-                <div
-                  className="bg-dark d-flex align-items-center justify-content-center rounded"
-                  style={{ width: "60px", height: "60px" }}
-                >
-                  <i className="fa fa-phone-alt text-white"></i>
-                </div>
-                <div className="ps-4">
-                  <h5 className="mb-2">Call us</h5>
-                  <p className="mb-2">+012 345 6789</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
           <div className="row g-5">
             <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.2s">
               <form onSubmit={handleSubmit}>
                 <div className="row g-3">
+                  {submitStatus === "success" && (
+                    <div className="col-12">
+                      <div className="alert alert-success">
+                        Message sent successfully!
+                      </div>
+                    </div>
+                  )}
+                  {submitStatus === "error" && (
+                    <div className="col-12">
+                      <div className="alert alert-danger">
+                        Failed to send message. Please try again.
+                      </div>
+                    </div>
+                  )}
                   <div className="col-md-6">
                     <input
                       type="text"
@@ -198,20 +163,10 @@ const ContactPage = () => {
                     <button
                       className="btn btn-dark w-100 py-3"
                       type="submit"
-                      disabled={status === "sending"}
+                      disabled={isSubmitting}
                     >
-                      {status === "sending" ? "Sending..." : "Send Message"}
+                      {isSubmitting ? "Sending..." : "Send Message"}
                     </button>
-                    {status === "success" && (
-                      <div className="text-success mt-3">
-                        Message sent successfully!
-                      </div>
-                    )}
-                    {status === "error" && (
-                      <div className="text-danger mt-3">
-                        Failed to send message. Please try again.
-                      </div>
-                    )}
                   </div>
                 </div>
               </form>

@@ -9,7 +9,7 @@ const Footer = () => {
 
     try {
       const response = await fetch(
-        "https://tangitex.onrender.com/api/v1/newsletter",
+        "https://tangitex.onrender.com/api/v1/user/newsletter",
         {
           method: "POST",
           headers: {
@@ -22,7 +22,7 @@ const Footer = () => {
         setEmail("");
         alert("Thank you for subscribing!");
       } else {
-        throw new Error("Subscription failed");
+        console.log("Subscription failed");
       }
     } catch (error) {
       console.log('Error details:', error);
