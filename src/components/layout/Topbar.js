@@ -32,15 +32,6 @@ const Topbar = () => {
             <small className="me-3 text-light" id="currentDate">
               {currentDate}
             </small>
-            <small className="me-3 text-light">
-              <i className="fa fa-map-marker-alt me-2"></i>46 Brussels Avenue, l6yoy7 Brampton, ON, Canada
-            </small>
-            <small className="me-3 text-light">
-              <i className="fa fa-phone-alt me-2"></i>+44 7432 518304
-            </small>
-            <small className="text-light">
-              <i className="fa fa-envelope-open me-2"></i>tangitexng@gmail.com
-            </small>
           </div>
         </div>
         <div className="col-lg-4 text-center text-lg-end">
