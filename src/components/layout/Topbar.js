@@ -41,19 +41,19 @@ const Topbar = () => {
           >
             <a
               className="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2"
-              href=""
+              href="twitter.com/tangitex_tech"
             >
               <i className="fab fa-twitter fw-normal"></i>
             </a>
             <a
               className="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2"
-              href=""
+              href="https://www.instagram.com/tangitex.solutions"
             >
-              <i className="fab fa-facebook-f fw-normal"></i>
+              <i className="fab fa-instagram fw-normal"></i>
             </a>
             <a
               className="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2"
-              href=""
+              href="https://www.linkedin.com/in/tangitex-nigeria-066187233"
             >
               <i className="fab fa-linkedin-in fw-normal"></i>
             </a>

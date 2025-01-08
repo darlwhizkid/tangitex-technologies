@@ -36,40 +36,50 @@ const Testimonial = () => {
             <div className="carousel-item active">
               <div className="testimonial-item bg-light rounded p-4">
                 <div className="d-flex align-items-center mb-4">
-                  <img
+                  {/* <img
                     className="flex-shrink-0 rounded-circle"
                     src="img/testimonial-1.jpg"
                     style={{ width: "70px", height: "70px" }}
                     alt=""
-                  />
+                  /> */}
                   <div className="ms-4">
                     <h5 className="mb-1">Kenestores</h5>
                     <span>Electronic eCommerce site</span>
                   </div>
                 </div>
                 <p className="mb-0">
-                  Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit
-                  diam amet diam et eos. Clita erat ipsum et lorem et sit.
+                  "Partnering with Tangitex Technologies to develop our
+                  e-commerce platform was a transformative experience. Their
+                  expertise in web design and commitment to understanding our
+                  unique needs resulted in a user-friendly, visually appealing,
+                  and highly functional website. Since the launch, we've
+                  observed a significant increase in customer engagement and
+                  sales. The team's professionalism and attention to detail
+                  exceeded our expectations, making them a highly recommended
+                  choice for businesses seeking top-notch e-commerce solutions."
                 </p>
               </div>
             </div>
             <div className="carousel-item">
               <div className="testimonial-item bg-light rounded p-4">
                 <div className="d-flex align-items-center mb-4">
-                  <img
+                  {/* <img
                     className="flex-shrink-0 rounded-circle"
                     src="img/testimonial-2.jpg"
                     style={{ width: "70px", height: "70px" }}
                     alt=""
-                  />
+                  /> */}
                   <div className="ms-4">
-                    <h5 className="mb-1">Second Client</h5>
-                    <span>Profession</span>
+                    <h5 className="mb-1">Coursify</h5>
+                    <span>Educational App</span>
                   </div>
                 </div>
                 <p className="mb-0">
-                  Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit
-                  diam amet diam et eos. Clita erat ipsum et lorem et sit.
+                  Collaborating with Tangitex Technologies on our educational website was
+                  a seamless experience. Their professionalism and attention to
+                  detail resulted in a platform that exceeded our expectations.
+                  The website's design is both intuitive and visually appealing,
+                  enhancing our educational outreach. We highly recommend Tangitex Technologies for web design services
                 </p>
               </div>
             </div>

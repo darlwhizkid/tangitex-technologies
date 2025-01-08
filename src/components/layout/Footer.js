@@ -95,13 +95,22 @@ const Footer = () => {
                       Contact Us
                     </Link>
                     <div className="d-flex mt-4">
-                      <a className="btn btn-primary btn-square me-2" href="#">
+                      <a
+                        className="btn btn-primary btn-square me-2"
+                        href="twitter.com/tangitex_tech"
+                      >
                         <i className="fab fa-twitter fw-normal"></i>
                       </a>
-                      <a className="btn btn-primary btn-square me-2" href="#">
-                        <i className="fab fa-facebook-f fw-normal"></i>
+                      <a
+                        className="btn btn-primary btn-square me-2"
+                        href="https://www.instagram.com/tangitex.solutions"
+                      >
+                        <i className="fab fa-instagram fw-normal"></i>
                       </a>
-                      <a className="btn btn-primary btn-square me-2" href="#">
+                      <a
+                        className="btn btn-primary btn-square me-2"
+                        href="https://www.linkedin.com/in/tangitex-nigeria-066187233"
+                      >
                         <i className="fab fa-linkedin-in fw-normal"></i>
                       </a>
                     </div>
