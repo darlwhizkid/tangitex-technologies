@@ -44,7 +44,7 @@ const Testimonial = () => {
                   /> */}
                   <div className="ms-4">
                     <h5 className="mb-1">Kenestores</h5>
-                    <span>Electronic eCommerce site</span>
+                    <span>Electronics eCommerce site</span>
                   </div>
                 </div>
                 <p className="mb-0">
