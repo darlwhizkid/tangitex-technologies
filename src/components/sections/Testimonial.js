@@ -44,7 +44,7 @@ const Testimonial = () => {
                   /> */}
                   <div className="ms-4">
                     <h5 className="mb-1">Kenestores</h5>
-                    <span>Electronic eCommerce site</span>
+                    <span>Electronics eCommerce site</span>
                   </div>
                 </div>
                 <p className="mb-0">
@@ -79,7 +79,7 @@ const Testimonial = () => {
                   a seamless experience. Their professionalism and attention to
                   detail resulted in a platform that exceeded our expectations.
                   The website's design is both intuitive and visually appealing,
-                  enhancing our educational outreach. We highly recommend Tangitex Technologies for web design services
+                  enhancing our educational outreach. We highly recommend Tangitex Technologies for digital services
                 </p>
               </div>
             </div>

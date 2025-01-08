@@ -121,11 +121,11 @@ const ServicesPage = () => {
                   by clicking on the link
                 </p>
                 <Link
-                                to="/contact"
-                                className="btn btn-outline-light py-md-3 px-md-5 animated slideInRight"
-                              >
-                                Contact Us
-                              </Link>
+                  to="/contact"
+                  className="btn btn-outline-light py-md-3 px-md-5 animated slideInRight"
+                >
+                  Contact Us
+                </Link>
               </div>
             </div>
           </div>
@@ -148,43 +148,56 @@ const ServicesPage = () => {
           >
             <div className="testimonial-item bg-light my-4">
               <div className="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
-                <img
+                {/* <img
                   className="img-fluid rounded"
                   src="/img/testimonial-1.jpg"
                   style={{ width: "60px", height: "60px" }}
                   alt="Testimonial 1"
-                />
+                /> */}
                 <div className="ps-4">
-                  <h4 className="text-blue mb-1">Client Name</h4>
-                  <small className="text-uppercase">Profession</small>
+                  <h4 className="text-blue mb-1">Kenestores</h4>
+                  <small className="text-uppercase">
+                    Electronics Ecommerce site
+                  </small>
                 </div>
               </div>
               <div className="pt-4 pb-5 px-5">
-                Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor
-                stet amet eirmod eos labore diam
+                Partnering with Tangitex Technologies to develop our e-commerce
+                platform was a transformative experience. Their expertise in web
+                design and commitment to understanding our unique needs resulted
+                in a user-friendly, visually appealing, and highly functional
+                website. Since the launch, we've observed a significant increase
+                in customer engagement and sales. The team's professionalism and
+                attention to detail exceeded our expectations, making them a
+                highly recommended choice for businesses seeking top-notch
+                e-commerce solutions.
               </div>
             </div>
 
             <div className="testimonial-item bg-light my-4">
               <div className="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
-                <img
+                {/* <img
                   className="img-fluid rounded"
                   src="/img/testimonial-2.jpg"
                   style={{ width: "60px", height: "60px" }}
                   alt="Testimonial 2"
-                />
+                /> */}
                 <div className="ps-4">
-                  <h4 className="text-blue mb-1">KeneStores</h4>
-                  <small className="text-uppercase">Profession</small>
+                  <h4 className="text-blue mb-1">Coursify</h4>
+                  <small className="text-uppercase">Educational App</small>
                 </div>
               </div>
               <div className="pt-4 pb-5 px-5">
-                Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor
-                stet amet eirmod eos labore diam
+                Collaborating with Tangitex Technologies on our educational
+                website was a seamless experience. Their professionalism and
+                attention to detail resulted in a platform that exceeded our
+                expectations. The website's design is both intuitive and
+                visually appealing, enhancing our educational outreach. We
+                highly recommend Tangitex Technologies for digital services
               </div>
             </div>
 
-            <div className="testimonial-item bg-light my-4">
+            {/* <div className="testimonial-item bg-light my-4">
               <div className="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
                 <img
                   className="img-fluid rounded"
@@ -201,9 +214,9 @@ const ServicesPage = () => {
                 Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor
                 stet amet eirmod eos labore diam
               </div>
-            </div>
+            </div> */}
 
-            <div className="testimonial-item bg-light my-4">
+            {/* <div className="testimonial-item bg-light my-4">
               <div className="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
                 <img
                   className="img-fluid rounded"
@@ -220,7 +233,7 @@ const ServicesPage = () => {
                 Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor
                 stet amet eirmod eos labore diam
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
