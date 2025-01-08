@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 const Services = () => {
   return (
@@ -19,10 +20,13 @@ const Services = () => {
               </div>
               <h4 className="mb-3">Graphic Design</h4>
               <p className="m-0">
-                Amet justo dolor lorem kasd amet magna sea stet eos vero lorem
-                ipsum dolore sed
+                We create stunning visual designs and branding solutions to help
+                your business stand out in the digital landscape
               </p>
-              <a className="btn btn-lg btn-primary rounded position-absolute bottom-0 end-0 m-4" href="">
+              <a
+                className="btn btn-lg btn-primary rounded position-absolute bottom-0 end-0 m-4"
+                href=""
+              >
                 <i className="bi bi-arrow-right"></i>
               </a>
             </div>
@@ -34,8 +38,8 @@ const Services = () => {
               </div>
               <h4 className="mb-3">Technical Support</h4>
               <p className="m-0">
-                Amet justo dolor lorem kasd amet magna sea stet eos vero lorem
-                ipsum dolore sed
+                "24/7 expert IT support and maintenance services to keep your
+                systems running smoothly and minimize downtime"
               </p>
               <a className="btn btn-lg btn-primary rounded" href="">
                 <i className="bi bi-arrow-right"></i>
@@ -49,8 +53,8 @@ const Services = () => {
               </div>
               <h4 className="mb-3">Web Development</h4>
               <p className="m-0">
-                Amet justo dolor lorem kasd amet magna sea stet eos vero lorem
-                ipsum dolore sed
+                "Custom website development using cutting-edge technologies to
+                deliver responsive, user-friendly digital experiences"
               </p>
               <a className="btn btn-lg btn-primary rounded" href="">
                 <i className="bi bi-arrow-right"></i>
@@ -64,8 +68,8 @@ const Services = () => {
               </div>
               <h4 className="mb-3">Apps Development</h4>
               <p className="m-0">
-                Amet justo dolor lorem kasd amet magna sea stet eos vero lorem
-                ipsum dolore sed
+                "Building innovative mobile applications for iOS and Android
+                that engage users and drive business growth"
               </p>
               <a className="btn btn-lg btn-primary rounded" href="">
                 <i className="bi bi-arrow-right"></i>
@@ -79,8 +83,8 @@ const Services = () => {
               </div>
               <h4 className="mb-3">SEO Optimization</h4>
               <p className="m-0">
-                Amet justo dolor lorem kasd amet magna sea stet eos vero lorem
-                ipsum dolore sed
+                "Strategic search engine optimization to improve your online
+                visibility and drive organic traffic to your website"
               </p>
               <a className="btn btn-lg btn-primary rounded" href="">
                 <i className="bi bi-arrow-right"></i>
@@ -89,12 +93,19 @@ const Services = () => {
           </div>
           <div className="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.9s">
             <div className="position-relative bg-dark rounded h-100 d-flex flex-column align-items-center justify-content-center text-center p-5">
-              <h3 className="text-white mb-3">Call Us For Quote</h3>
+              <h3 className="text-white mb-3">
+                Satisfied? Request A Quote Below
+              </h3>
               <p className="text-white mb-3">
-                Clita ipsum magna kasd rebum at ipsum amet dolor justo dolor est
-                magna stet eirmod
+                Still need a specific service and have an enquiry? Contact us by
+                clicking on the link
               </p>
-              <h2 className="text-white mb-0">+012 345 6789</h2>
+              <Link
+                to="/contact"
+                className="btn btn-outline-light py-md-3 px-md-5 animated slideInRight"
+              >
+                Contact Us
+              </Link>
             </div>
           </div>
         </div>

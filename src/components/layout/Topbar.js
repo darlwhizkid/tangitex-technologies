@@ -32,15 +32,6 @@ const Topbar = () => {
             <small className="me-3 text-light" id="currentDate">
               {currentDate}
             </small>
-            <small className="me-3 text-light">
-              <i className="fa fa-map-marker-alt me-2"></i>46 Brussels Avenue, l6yoy7 Brampton, ON, Canada
-            </small>
-            <small className="me-3 text-light">
-              <i className="fa fa-phone-alt me-2"></i>+44 7432 518304
-            </small>
-            <small className="text-light">
-              <i className="fa fa-envelope-open me-2"></i>tangitexng@gmail.com
-            </small>
           </div>
         </div>
         <div className="col-lg-4 text-center text-lg-end">
@@ -50,19 +41,19 @@ const Topbar = () => {
           >
             <a
               className="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2"
-              href=""
+              href="twitter.com/tangitex_tech"
             >
               <i className="fab fa-twitter fw-normal"></i>
             </a>
             <a
               className="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2"
-              href=""
+              href="https://www.instagram.com/tangitex.solutions"
             >
-              <i className="fab fa-facebook-f fw-normal"></i>
+              <i className="fab fa-instagram fw-normal"></i>
             </a>
             <a
               className="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2"
-              href=""
+              href="https://www.linkedin.com/in/tangitex-nigeria-066187233"
             >
               <i className="fab fa-linkedin-in fw-normal"></i>
             </a>

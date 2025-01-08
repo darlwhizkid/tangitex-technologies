@@ -92,34 +92,14 @@ const Quote = () => {
                   hours
                 </h5>
               </div>
-              <div className="col-sm-6 wow zoomIn" data-wow-delay="0.4s">
-                <h5 className="mb-4">
-                  <i className="fa fa-phone-alt text-blue me-3"></i>24 hrs
-                  telephone support
-                </h5>
-              </div>
             </div>
             <p className="mb-4">
-              Eirmod sed tempor lorem ut dolores. Aliquyam sit sadipscing kasd
-              ipsum. Dolor ea et dolore et at sea ea at dolor, justo ipsum duo
-              rebum sea invidunt voluptua. Eos vero eos vero ea et dolore eirmod
-              et.
+              We understand your business needs and are committed to delivering 
+              exceptional IT solutions. Our team of experts is ready to provide 
+              you with personalized service and innovative technology solutions 
+              that will help your business grow and succeed.
+
             </p>
-            <div
-              className="d-flex align-items-center mt-2 wow zoomIn"
-              data-wow-delay="0.6s"
-            >
-              <div
-                className="bg-dark d-flex align-items-center justify-content-center rounded"
-                style={{ width: "60px", height: "60px" }}
-              >
-                <i className="fa fa-phone-alt text-white"></i>
-              </div>
-              <div className="ps-4">
-                <h5 className="mb-2">Call to ask any question</h5>
-                <h4 className="text-blue mb-0">+012 345 6789</h4>
-              </div>
-            </div>
           </div>
           <div className="col-lg-5">
             <div
