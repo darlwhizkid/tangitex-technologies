@@ -79,7 +79,7 @@ const Testimonial = () => {
                   a seamless experience. Their professionalism and attention to
                   detail resulted in a platform that exceeded our expectations.
                   The website's design is both intuitive and visually appealing,
-                  enhancing our educational outreach. We highly recommend Tangitex Technologies for web design services
+                  enhancing our educational outreach. We highly recommend Tangitex Technologies for digital services
                 </p>
               </div>
             </div>
