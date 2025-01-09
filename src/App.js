@@ -23,7 +23,7 @@ import ServicesPage from "./components/pages/ServicesPage";
 import ContactPage from "./components/pages/ContactPage";
 
 function App() {
-  const wowRef = useRef(null);
+  // const wowRef = useRef(null);
 
   useEffect(() => {
     const wow = new WOW({
