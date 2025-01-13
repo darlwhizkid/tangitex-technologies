@@ -49,7 +49,8 @@ const Quote = () => {
       console.log("submitted");
       if (!response.ok) {
         console.log("some error");
-        setSuccessMessage(response.data.message)
+        const data = await response.json()
+        setSuccessMessage(data.message)
         setSubmitStatus("failure")
         setSuccessStatus("alert-danger")
         setIsSubmitting(false);
