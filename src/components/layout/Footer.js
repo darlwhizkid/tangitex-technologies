@@ -1,6 +1,6 @@
 import React, { useState} from "react";
 import { Link } from "react-router-dom";
-
+import { BACKEND_URL } from "../../utils/api";
 const Footer = () => {
   const [email, setEmail] = useState("");
 
@@ -9,7 +9,7 @@ const Footer = () => {
 
     try {
       const response = await fetch(
-        "https://tangitex.onrender.com/api/v1/user/newsletter",
+        `${BACKEND_URL}/user/newsletter`,
         {
           method: "POST",
           headers: {

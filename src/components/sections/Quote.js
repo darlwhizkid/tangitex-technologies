@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import { BACKEND_URL } from "../../utils/api";
 const Quote = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -36,7 +36,7 @@ const Quote = () => {
 
     try {
       const response = await fetch(
-        "https://tangitex.onrender.com/api/v1/contact",
+        `${BACKEND_URL}/contact`,
         {
           method: "POST",
           headers: {

@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../layout/Footer";
-
+import { BACKEND_URL } from "../../utils/api";
 const ContactPage = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     subject: "",
     message: "",
+    category: "LIVE"
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
@@ -34,7 +35,7 @@ const ContactPage = () => {
 
     try {
       const response = await fetch(
-        "https://tangitex.onrender.com/api/v1/contact",
+        `${BACKEND_URL}/contact`,
         {
           method: "POST",
           headers: {
