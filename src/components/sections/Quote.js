@@ -53,6 +53,7 @@ const Quote = () => {
         setSubmitStatus("alert-error")
         setSubmit
         setIsSubmitting(false);
+        return
       }
 
       console.log("Form submitted:", formData);
