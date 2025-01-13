@@ -11,7 +11,8 @@ const Quote = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
-
+  const [successMessage, setSuccessMessage] = useState("Quote request submitted successfully! We will get in touch with you shortly.")
+  const [successStatus, setSuccessStatus] = useState("alert-success")
   useEffect(() => {
     if (submitStatus === "success") {
       const timer = setTimeout(() => {
@@ -48,6 +49,9 @@ const Quote = () => {
       console.log("submitted");
       if (!response.ok) {
         console.log("some error");
+        setSuccessMessage(response.data.message)
+        setSubmitStatus("alert-error")
+        setSubmit
         setIsSubmitting(false);
       }
 
@@ -64,6 +68,8 @@ const Quote = () => {
       setIsSubmitting(false);
     } catch (error) {
       console.log("some error occured");
+      setSuccessMessage("Some error occured with your request. Please try again later.")
+      setSubmitStatus("alert-error")
       setIsSubmitting(false);
     }
   };
@@ -110,12 +116,11 @@ const Quote = () => {
                 <div className="row g-3">
                   {submitStatus === "success" && (
                     <div className="col-12">
-                      <div className="alert alert-success">
-                        Quote request submitted successfully! We will get in
-                        touch with you shortly.
+                      <div className={`alert ${successStatus}`}>
+                        {successMessage}
                       </div>
                     </div>
-                  )}
+                  ) }
                   <div className="col-xl-12">
                     <input
                       type="text"
