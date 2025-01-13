@@ -51,7 +51,6 @@ const Quote = () => {
         console.log("some error");
         setSuccessMessage(response.data.message)
         setSubmitStatus("alert-error")
-        setSubmit
         setIsSubmitting(false);
         return
       }
