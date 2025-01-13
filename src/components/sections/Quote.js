@@ -11,7 +11,7 @@ const Quote = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
-  const [successMessage, setSuccessMessage] = useState("Quote request submitted successfully! We will get in touch with you shortly.")
+  const [successMessage, setSuccessMessage] = useState(null)
   const [successStatus, setSuccessStatus] = useState(null)
   useEffect(() => {
     if (submitStatus === "success") {
@@ -59,6 +59,7 @@ const Quote = () => {
 
       console.log("Form submitted:", formData);
       setSubmitStatus("success");
+      setSuccessMessage("Quote request submitted successfully! We will get in touch with you shortly.")
       setSuccessStatus("alert-success")
       setFormData({
         name: "",
