@@ -12,7 +12,7 @@ const Quote = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
   const [successMessage, setSuccessMessage] = useState("Quote request submitted successfully! We will get in touch with you shortly.")
-  const [successStatus, setSuccessStatus] = useState("alert-success")
+  const [successStatus, setSuccessStatus] = useState(null)
   useEffect(() => {
     if (submitStatus === "success") {
       const timer = setTimeout(() => {
@@ -50,13 +50,15 @@ const Quote = () => {
       if (!response.ok) {
         console.log("some error");
         setSuccessMessage(response.data.message)
-        setSubmitStatus("alert-error")
+        setSubmitStatus("failure")
+        setSuccessStatus("alert-danger")
         setIsSubmitting(false);
         return
       }
 
       console.log("Form submitted:", formData);
       setSubmitStatus("success");
+      setSuccessStatus("alert-success")
       setFormData({
         name: "",
         email: "",
@@ -69,7 +71,8 @@ const Quote = () => {
     } catch (error) {
       console.log("some error occured");
       setSuccessMessage("Some error occured with your request. Please try again later.")
-      setSubmitStatus("alert-error")
+      setSubmitStatus("failure")
+      setSuccessStatus("alert-danger")
       setIsSubmitting(false);
     }
   };
@@ -114,7 +117,7 @@ const Quote = () => {
             >
               <form onSubmit={handleSubmit}>
                 <div className="row g-3">
-                  {submitStatus === "success" && (
+                  {successStatus && (
                     <div className="col-12">
                       <div className={`alert ${successStatus}`}>
                         {successMessage}
