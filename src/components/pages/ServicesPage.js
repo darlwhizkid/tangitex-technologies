@@ -155,7 +155,7 @@ const ServicesPage = () => {
                   alt="Testimonial 1"
                 /> */}
                 <div className="ps-4">
-                  <h4 className="text-blue mb-1">Kenestores</h4>
+                  <h4 className="text-blue mb-1">Kaycee Lightings</h4>
                   <small className="text-uppercase">
                     Electronics Ecommerce site
                   </small>
@@ -197,43 +197,58 @@ const ServicesPage = () => {
               </div>
             </div>
 
-            {/* <div className="testimonial-item bg-light my-4">
+            <div className="testimonial-item bg-light my-4">
               <div className="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
-                <img
+                {/* <img
                   className="img-fluid rounded"
                   src="/img/testimonial-3.jpg"
                   style={{ width: "60px", height: "60px" }}
                   alt="Testimonial 3"
-                />
+                /> */}
                 <div className="ps-4">
-                  <h4 className="text-blue mb-1">Mayo's Place</h4>
-                  <small className="text-uppercase">Profession</small>
+                  <h4 className="text-blue mb-1">Wigsnstuff</h4>
+                  <small className="text-uppercase">
+                    Fashion eCommerce site
+                  </small>
                 </div>
               </div>
               <div className="pt-4 pb-5 px-5">
-                Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor
-                stet amet eirmod eos labore diam
+                "Working with Tangitex Technologies to create our wig and hair
+                accessories eCommerce platform was an excellent decision. Their
+                team delivered a stunning website that perfectly showcases our
+                products and makes shopping easy for our customers. The seamless
+                checkout process and beautiful product displays have
+                significantly boosted our online sales. Their understanding of
+                fashion eCommerce needs and technical expertise made the entire
+                development process smooth and successful."
               </div>
-            </div> */}
+            </div>
 
-            {/* <div className="testimonial-item bg-light my-4">
+            <div className="testimonial-item bg-light my-4">
               <div className="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
-                <img
+                {/* <img
                   className="img-fluid rounded"
                   src="/img/testimonial-4.jpg"
                   style={{ width: "60px", height: "60px" }}
                   alt="Testimonial 4"
-                />
+                /> */}
                 <div className="ps-4">
-                  <h4 className="text-blue mb-1">Client Name</h4>
-                  <small className="text-uppercase">Profession</small>
+                  <h4 className="text-blue mb-1">Direct Energy</h4>
+                  <small className="text-uppercase">Energy Solutions Company</small>
                 </div>
               </div>
               <div className="pt-4 pb-5 px-5">
-                Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor
-                stet amet eirmod eos labore diam
+                "Tangitex Technologies transformed our digital presence with a
+                sophisticated and user-friendly website. Their team developed an
+                intuitive platform that allows our customers to easily manage
+                their energy accounts, view consumption data, and access
+                important services. The integration of real-time analytics and
+                responsive design has greatly improved our customer engagement
+                and operational efficiency. Their expertise in creating
+                enterprise-level solutions made them the perfect partner for our
+                digital transformation."
               </div>
-            </div> */}
+            </div>
           </div>
         </div>
       </div>
