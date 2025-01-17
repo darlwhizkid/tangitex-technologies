@@ -41,7 +41,7 @@ const Topbar = () => {
           >
             <a
               className="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2"
-              href="twitter.com/tangitex_tech"
+              href="https://www.twitter.com/tangitex_tech"
             >
               <i className="fab fa-twitter fw-normal"></i>
             </a>
